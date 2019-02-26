@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/uno"
+        android:icon="@drawable/ic_extension_black_24dp"
+        android:title="Uno" />
+
+    <item
+        android:id="@+id/dos"
+        android:icon="@drawable/ic_flare_black_24dp"
+        android:title="Dos" />
+
+    <item
+        android:id="@+id/tres"
+        android:icon="@drawable/ic_motorcycle_black_24dp"
+        android:title="Tres" />
+
+    <item
+        android:id="@+id/cautro"
+        android:icon="@drawable/ic_toys_black_24dp"
+        android:title="Cautro" />
+
+</menu>
