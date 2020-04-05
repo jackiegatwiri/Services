@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="#FFF"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -33,7 +34,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAdvert"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="250dp"
             android:layout_marginTop="0dp"
             android:foreground="#66000000" />
             </RelativeLayout>
@@ -57,7 +58,6 @@
                     android:textColor="#000"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:paddingBottom="5dp"
                     android:text="Select vehicle"
                     android:layout_marginLeft="20dp" />
 
@@ -68,6 +68,14 @@
                     android:spinnerMode="dropdown"
                     app:ms_arrowColor="@color/colorAccent"
                     app:ms_hintColor="@color/colorAccent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="#000" />
 
             </LinearLayout>
 
@@ -88,7 +96,6 @@
         app:itemBackground="?selectableItemBackgroundBorderless"
         app:itemHorizontalTranslationEnabled="true"
         android:layout_alignParentBottom="true"
-
         app:menu="@menu/bottom_nav"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"/>

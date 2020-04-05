@@ -51,13 +51,13 @@ public class UnoFragment extends Fragment {
         mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/accident_recovery_and_tow_48+by+48.png");
         serviceName.add("Accident Recovery and towing");
 
-        mImageUrls.add("https://images.unsplash.com/photo-1523676060187-f55189a71f5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+        mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/flat_tire_48+by+48.png");
         serviceName.add("Damage assessment");
 
         mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/recovery_towing_48+by+48.png");
         serviceName.add("Courtesy car");
 
-        mImageUrls.add("https://images.unsplash.com/photo-1523676060187-f55189a71f5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+        mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/hospital_48+by+48.png");
         serviceName.add("Medical evacuation");
 
         mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/police_48+by+48.png");

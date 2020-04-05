@@ -45,10 +45,10 @@ public class DosFragment extends Fragment {
     }
 
     private void imageBitmaps(){
-        mImageUrls.add("https://tinyjpg.com/images/social/website.jpg");
+        mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/flat_tire_48+by+48.png");
         serviceName.add("Valuation");
 
-        mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/landing/mechanical.jpg");
+        mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/battery_jumpstart_48+by+48.png");
         serviceName.add("Road rescue");
 
         mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/non_accident_recovery_and_towing48+by+48.png");
