@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/uno"
-        android:icon="@drawable/ic_extension_black_24dp"
-        android:title="Uno" />
+        android:icon="@drawable/homebutton"
+        android:title="Accident services" />
 
     <item
         android:id="@+id/dos"
-        android:icon="@drawable/ic_flare_black_24dp"
-        android:title="Dos" />
+        android:icon="@drawable/non_accident"
+        android:title="Non accident services" />
 
-    <item
-        android:id="@+id/tres"
-        android:icon="@drawable/ic_motorcycle_black_24dp"
-        android:title="Tres" />
+<!--    <item-->
+<!--        android:id="@+id/tres"-->
+<!--        android:icon="@drawable/ic_motorcycle_black_24dp"-->
+<!--        android:title="MyParts" />-->
 
-    <item
-        android:id="@+id/cautro"
-        android:icon="@drawable/ic_toys_black_24dp"
-        android:title="Cautro" />
+<!--    <item-->
+<!--        android:id="@+id/cautro"-->
+<!--        android:icon="@drawable/ic_toys_black_24dp"-->
+<!--        android:title="eAuqtion" />-->
 
 </menu>

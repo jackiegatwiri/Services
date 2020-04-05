@@ -1,18 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_menu_black_24dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewAdvert"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:foreground="#66000000" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/spinnerHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recyclerViewAdvert"
+                android:layout_marginTop="-30dp"
+                android:background="@drawable/card_corner_radius"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/headingTwoo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="Select vehicle"
+                    android:layout_marginLeft="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    app:ms_arrowColor="@color/colorAccent"
+                    app:ms_hintColor="@color/colorAccent" />
+
+            </LinearLayout>
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/navigationView"/>
+        </LinearLayout>
 
-    <android.support.design.widget.BottomNavigationView
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +88,7 @@
         app:itemBackground="?selectableItemBackgroundBorderless"
         app:itemHorizontalTranslationEnabled="true"
         android:layout_alignParentBottom="true"
+
         app:menu="@menu/bottom_nav"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"/>
