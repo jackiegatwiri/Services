@@ -10,8 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,7 +26,10 @@ import java.util.ArrayList;
 public class DosFragment extends Fragment {
 
     private ArrayList<String> serviceName = new ArrayList<>();
+    private TextView title;
+    private ImageView imageView;
     private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ServicesAdapter servicesAdapter;
 
 
     public DosFragment() {
@@ -42,6 +49,10 @@ public class DosFragment extends Fragment {
         imageBitmaps();
         initViews(view);
 
+
+
+
+
     }
 
     private void imageBitmaps(){
@@ -60,12 +71,43 @@ public class DosFragment extends Fragment {
 
     }
 
-    private void initViews(View view){
+    private void initViews(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewServices);
-        ServicesAdapter servicesAdapter = new ServicesAdapter(getActivity(), mImageUrls, serviceName);
+        title = view.findViewById(R.id.title);
+        imageView = view.findViewById(R.id.image);
+        RecyclerViewClickListener listener = new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                if(position == 1) {
+                    title.setText("Road Rescue");
+                    imageView.setBackgroundResource(R.drawable.download);
+                    serviceName.clear();
+                    mImageUrls.clear();
+                    ArrayList<String> newImageUrls = new ArrayList<>();
+                    newImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/fuel_top_up_48+by+48.png");
+                    newImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/battery_jumpstart_48+by+48.png");
+                    newImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/flat_tire_48+by+48.png");
+                    newImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/minor_mechanical%2B48+by+48.png");
+
+                    ArrayList<String> newList = new ArrayList<>();
+                    newList.add("fuel top up");
+                    newList.add("battery jump-start");
+                    newList.add("flat tyre");
+                    newList.add("key unlock");
+
+                    serviceName.addAll(newList);
+                    mImageUrls.addAll(newImageUrls);
+                    servicesAdapter.notifyDataSetChanged();
+                }
+            }
+        };
+        servicesAdapter = new ServicesAdapter(getActivity(), mImageUrls, serviceName, listener);
+        recyclerView.setNestedScrollingEnabled(true);
         recyclerView.setAdapter(servicesAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
 
     }
+
 
 }

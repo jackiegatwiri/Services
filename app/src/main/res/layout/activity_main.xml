@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,19 +11,33 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never">
+        android:id="@+id/coordinator_layout"
+        android:layout_height="match_parent"
+     >
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.denzcoskun.imageslider.ImageSlider
+                android:layout_width="match_parent"
+                app:auto_cycle="true"
+                app:delay="0"
+                android:id="@+id/slider"
+                app:period="1000"
+                app:error_image="@drawable/bg_grey"
+                app:placeholder="@drawable/bg_grey"
+                app:corner_radius="0"
+                android:layout_height="280dp"/>
+
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 >
 
                 <ImageView
@@ -34,7 +49,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewAdvert"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="220dp"
             android:layout_marginTop="0dp"
             android:foreground="#66000000" />
             </RelativeLayout>
@@ -44,8 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/recyclerViewAdvert"
-                android:layout_marginTop="-30dp"
-                android:background="@drawable/card_corner_radius"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
                 >
 
@@ -57,17 +72,36 @@
                     android:textStyle="bold"
                     android:textColor="#000"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Select vehicle"
+                    android:layout_marginTop="15dp"
+                    android:textSize="12sp"
+                    android:text="Selected vehicle"
                     android:layout_marginLeft="20dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                       android:layout_marginLeft="25dp"
+                        android:layout_weight="1"
+                        android:layout_width="25dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="@color/colorPrimary"/>
 
                 <Spinner
                     android:id="@+id/spinner"
+                    android:layout_weight="1"
                     android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dropdown"
                     app:ms_arrowColor="@color/colorAccent"
                     app:ms_hintColor="@color/colorAccent" />
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -83,21 +117,26 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="?attr/actionBarSize"
         android:layout_above="@+id/navigationView"/>
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
         app:itemBackground="?selectableItemBackgroundBorderless"
+        android:elevation="20dp"
         app:itemHorizontalTranslationEnabled="true"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav"
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>

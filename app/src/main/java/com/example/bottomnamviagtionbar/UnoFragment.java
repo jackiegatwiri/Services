@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -63,14 +64,23 @@ public class UnoFragment extends Fragment {
         mImageUrls.add("https://myresque.s3.eu-central-1.amazonaws.com/Images/icons/police_48+by+48.png");
         serviceName.add("Police abstract");
 
+
+
     }
 
     private void initViews(View view){
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewServices);
-        ServicesAdapter servicesAdapter = new ServicesAdapter(getActivity(), mImageUrls, serviceName);
+        RecyclerViewClickListener listener = new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(UnoFragment.this.getContext(), "Position " + position, Toast.LENGTH_SHORT).show();
+            }
+        };
+        ServicesAdapter servicesAdapter = new ServicesAdapter(getActivity(), mImageUrls, serviceName,listener);
         recyclerView.setAdapter(servicesAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 
     }
+
 
 }

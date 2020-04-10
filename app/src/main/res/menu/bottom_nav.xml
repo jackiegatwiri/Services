@@ -4,12 +4,12 @@
     <item
         android:id="@+id/uno"
         android:icon="@drawable/accident2"
-        android:title="Accident services" />
+        android:title="Accident Services" />
 
     <item
         android:id="@+id/dos"
         android:icon="@drawable/nona"
-        android:title="Non accident services" />
+        android:title="Non-Accident Services" />
 
 <!--    <item-->
 <!--        android:id="@+id/tres"-->

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,13 +18,15 @@ import java.util.List;
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServicesViewHolder> {
 
     private Context context;
-    private List<String> imageUrl;
+    private RecyclerViewClickListener mListener;
+    public List<String> imageUrl;
     private List<String> serviceName;
 
-    public ServicesAdapter(Context context, List<String> imageUrl, List<String> serviceName) {
+    public ServicesAdapter(Context context, List<String> imageUrl, List<String> serviceName, RecyclerViewClickListener listener) {
         this.context = context;
         this.imageUrl = imageUrl;
         this.serviceName = serviceName;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -32,7 +35,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         View view;
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         view = layoutInflater.inflate(R.layout.item_service, parent, false);
-        return new ServicesViewHolder(view);
+        return new ServicesViewHolder(view, mListener);
     }
 
     @Override
@@ -40,7 +43,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         holder.service.setText(serviceName.get(position));
         Glide.with(context)
                 .load(imageUrl.get(position))
-                .into(holder.image);
+                .into(((ServicesViewHolder) holder).image);
 
 
     }
@@ -50,13 +53,28 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         return serviceName.size();
     }
 
-    public static class ServicesViewHolder extends RecyclerView.ViewHolder {
+    public static class ServicesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
         ImageView image;
         TextView service;
-        public ServicesViewHolder(@NonNull View itemView) {
+        private RecyclerViewClickListener mListener;
+
+
+        public ServicesViewHolder(@NonNull View itemView, RecyclerViewClickListener listener) {
             super(itemView);
             image = itemView.findViewById(R.id.image);
             service = itemView.findViewById(R.id.serviceName);
+            mListener = listener;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            mListener.onClick(view, getAdapterPosition());
         }
     }
+
+
+
+
 }
